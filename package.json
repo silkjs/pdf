@@ -1,6 +1,6 @@
 {
   "name": "@silkjs/pdf",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "main": "dist/main.js",
   "typings": "typings/index.d.ts",
   "description": "pdfkit for browser",
