@@ -1,8 +1,8 @@
-import fs from "fs";
-// use raw-loader explicitly
-import Courier from "!!raw-loader!pdfkit/js/data/Courier.afm";
-// use raw-loader implicitly (webpack is configured to load *.afm files using raw loader)
-import CourierBold from "pdfkit/js/data/Courier-Bold.afm";
+import fs from 'fs';
+// // use raw-loader explicitly
+// import Courier from "!!raw-loader!pdfkit/js/data/Courier.afm";
+// // use raw-loader implicitly (webpack is configured to load *.afm files using raw loader)
+// import CourierBold from "pdfkit/js/data/Courier-Bold.afm";
 
 function registerBinaryFiles(ctx) {
   ctx.keys().forEach(key => {
@@ -22,12 +22,12 @@ function registerAFMFonts(ctx) {
 }
 
 // register all files found in assets folder (relative to src)
-registerBinaryFiles(require.context("./assets", true));
+registerBinaryFiles(require.context('./assets', true));
 
 // register AFM fonts distributed with pdfkit
 // is good practice to register only required fonts to avoid the bundle size increase
-registerAFMFonts(require.context("pdfkit/js/data", false, /Helvetica.*\.afm$/));
+registerAFMFonts(require.context('pdfkit/js/data', false, /Helvetica.*\.afm$/));
 
-// register files imported directly
-fs.writeFileSync("data/Courier.afm", Courier);
-fs.writeFileSync("data/Courier-Bold.afm", CourierBold);
+// // register files imported directly
+// fs.writeFileSync("data/Courier.afm", Courier);
+// fs.writeFileSync("data/Courier-Bold.afm", CourierBold);

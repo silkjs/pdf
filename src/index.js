@@ -7,6 +7,7 @@ function makePDF(callback) {
     try {
       const doc = new PDFDocument();
       const stream = doc.pipe(blobStream());
+      doc.registerFont('PingFang', 'fonts/苹方黑体-准-简.ttf');
       callback(doc);
       stream.on('finish', () => {
         resolve(stream.toBlobURL('application/pdf'));

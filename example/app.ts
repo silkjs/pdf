@@ -1,7 +1,8 @@
 import { makePDF } from '../';
 
 makePDF(doc => {
-  doc.text('dsfs');
+  doc.font('PingFang');
+  doc.text('hello,世界！');
   doc.end();
 })
   .then(url => {
