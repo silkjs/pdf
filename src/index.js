@@ -1,16 +1,25 @@
-const PDFDocument = require("pdfkit").default;
-const blobStream = require("blob-stream");
-import "./register-files";
+const PDFDocument = require('pdfkit').default;
+const blobStream = require('blob-stream');
+import './register-files';
 
-export async function makePDF(callback) {
-  const doc = new PDFDocument();
-  const stream = doc.pipe(blobStream());
-  try {
-    callback(doc);
-  } catch (error) {
-    Promise.reject(error);
-  }
-  stream.on("finish", function() {
-    Promise.resolve(stream.toBlobURL("application/pdf"));
+function makePDF(options, callback) {
+  return new Promise((resolve, reject) => {
+    try {
+      const doc = new PDFDocument(options);
+      const stream = doc.pipe(blobStream());
+      doc.registerFont('PingFang', 'fonts/苹方黑体-准-简.ttf');
+      doc.font('PingFang');
+      callback(doc);
+      doc.end();
+      stream.on('finish', () => {
+        resolve(stream.toBlobURL('application/pdf'));
+      });
+    } catch (error) {
+      reject(error);
+    }
   });
 }
+
+export default {
+  makePDF,
+};

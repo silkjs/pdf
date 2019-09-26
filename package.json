@@ -1,6 +1,14 @@
 {
+  "name": "@silkjs/pdf",
+  "version": "0.2.0",
   "main": "dist/main.js",
   "typings": "typings/index.d.ts",
+  "description": "pdfkit for browser",
+  "keywords": [
+    "browser",
+    "async",
+    "pdf"
+  ],
   "scripts": {
     "dev": "webpack --mode development",
     "prod": "webpack --mode production"
@@ -8,10 +16,26 @@
   "devDependencies": {
     "arraybuffer-loader": "^1.0.7",
     "blob-stream": "^0.1.3",
+    "brfs": "^2.0.2",
+    "parcel-bundler": "^1.12.3",
     "pdfkit": "^0.10.0",
     "raw-loader": "^3.1.0",
     "transform-loader": "^0.2.4",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7"
-  }
+  },
+  "dependencies": {
+    "@types/node": "*",
+    "@types/pdfkit": "^0.10.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silkjs/pdfkit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/silkjs/pdfkit/issues"
+  },
+  "homepage": "https://github.com/silkjs/pdfkit#readme"
 }

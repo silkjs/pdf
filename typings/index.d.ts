@@ -1,6 +1,7 @@
 /// <reference types="node" />
-/// <reference types="../node_modules/@types/pdfkit" />
+/// <reference types="PDFKit" />
 
-export async function makePDF(
-  callback: (doc: PDFKit.PDFDocument) => void
+export function makePDF(
+  options: PDFKit.PDFDocumentOptions,
+  callback: (doc: PDFKit.PDFDocument) => void,
 ): Promise<string>;
